@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Header from '../Header/header'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import FooterContainer from '../Footer/footerContainer'
 
 
 const theme = createMuiTheme({
@@ -12,7 +13,26 @@ const theme = createMuiTheme({
             contrastText: '#fff',
         },
         secondary:{
-           main:'#fff'
+            main:'#fff',
+            contrastText:'#fff'
+        },
+    },
+    typography: {
+        useNextVariants: true,
+        "fontFamily": "\"Roboto\", \"Helvetica\", \"Arial\", sans-serif",
+        "fontSize": 14,
+        "fontWeightLight": 300,
+        "fontWeightRegular": 400,
+        "fontWeightMedium": 500,
+       },
+    overrides: {
+        MuiButton:{
+            textPrimary:{
+                color:'black'
+            },
+            textSecondary:{
+                color:'white'
+            }
         }
     }
 });
@@ -24,7 +44,7 @@ class Layout extends Component {
             <MuiThemeProvider theme={theme}>
                <Header/>
                {this.props.children}
-               Footer
+               <FooterContainer></FooterContainer>
             </MuiThemeProvider>
         )
     }
