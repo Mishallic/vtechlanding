@@ -6,7 +6,7 @@ import SliderTemplate from './sliderTemplate'
 const styles = () => ({
     image:{
         backgroundSize:'cover',
-        backgroundPosition:'center',
+        backgroundPosition:'center'
     },
     contentCont:{
       position:'absolute',
@@ -19,9 +19,7 @@ const styles = () => ({
     container:{
       bottom:0,
       background:'rgba(0, 0, 0, 0.5)',
-      color:'#f1f1f1',
-
-     
+      color:'#f1f1f1'
     }
 })
 
