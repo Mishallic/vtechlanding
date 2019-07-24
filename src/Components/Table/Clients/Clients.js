@@ -1,9 +1,8 @@
 import React from 'react'
-import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 
-const FivesTables = (props) => { 
+const Clients = (props) => { 
     const {classes}= props.styles
     const clientArray = []
     const structurize = () => {
@@ -41,4 +40,4 @@ const FivesTables = (props) => {
 }
 
 
-export default FivesTables
+export default Clients

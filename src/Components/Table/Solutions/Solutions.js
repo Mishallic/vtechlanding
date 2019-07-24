@@ -4,7 +4,7 @@ import ButtonBase from '@material-ui/core/ButtonBase'
 import Typography from '@material-ui/core/Typography'
 import WOW from 'wowjs'
 
-const ThirdsTable = (props) => {
+const Solutions = (props) => {
     
     
     
@@ -22,7 +22,7 @@ const ThirdsTable = (props) => {
     
     const renderItems = (item) => (
        
-        <Grid className="wow flipInY" data-wow-offset="50" data-wow-delay="0.5s" item lg={4} xs={12}>
+        <Grid className="wow flipInY" data-wow-offset="50" data-wow-delay="0.2s" item lg={4} xs={12}>
         <div  className={classes.tableItem}>
             <ButtonBase
                 focusRipple
@@ -73,4 +73,4 @@ const ThirdsTable = (props) => {
     
 
 
-export default ThirdsTable
+export default Solutions

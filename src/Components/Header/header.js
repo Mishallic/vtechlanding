@@ -118,7 +118,7 @@ class Header extends Component{
                         <div className={classes.phoneNumber}>
                         <Grid className={classes.paper} container justify='center' direcion='row'  alignItems='center' item lg xs={12}>
                           <Button variant='text' size='small' >
-                          <Phone fontSize='small' className={classes.paper}></Phone>0799822314</Button>
+                          <Phone fontSize='small' className={classes.paper}></Phone>0775454221</Button>
                         </Grid>
                         </div> 
         </Grid>

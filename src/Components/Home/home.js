@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import SliderContainer from '../Widgets/Slider/slider'
 import { withStyles } from '@material-ui/core/styles'
 import NavMenu from '../Menus/NavMenu/navMenu'
-import ThirdsTableContainer from '../Table/ThirdsTable/ThirdsTableContainer'
-import PaperThirdsContainer from '../Table/PaperThirds/paperThirdsContainer';
+import ProductsContainer from '../Table/Products/productsContainer'
+import SolutionsContainer from '../Table/Solutions/SolutionsContainer';
 import Divider from '@material-ui/core/Divider'
-import FivesTablesContainer from '../Table/FivesTables/fivesTablesContainer'
+import ClientsContainer from '../Table/Clients/ClientsContainer'
 
 
 const styles = ( ) => ({
@@ -24,11 +24,11 @@ class Home extends Component{
         <div className={classes.root}> 
                 <NavMenu></NavMenu>
                 <SliderContainer></SliderContainer>
-                <ThirdsTableContainer></ThirdsTableContainer>
+                <ProductsContainer></ProductsContainer>
                 <Divider variant="middle" />
-                <PaperThirdsContainer></PaperThirdsContainer>
+                <SolutionsContainer></SolutionsContainer>
                 <Divider variant="middle" />
-                <FivesTablesContainer></FivesTablesContainer>
+                <ClientsContainer></ClientsContainer>
         </div>
     )
 }}

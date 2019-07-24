@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 
-const PaperThirds = (props) => {
+const Products = (props) => {
     const {classes} = props.styles
 
     const structurize = () => {
@@ -14,7 +14,7 @@ const PaperThirds = (props) => {
     }
 
     const renderItems = (item) => (
-        <Grid className="wow fadeInDown" data-wow-offset="50" data-wow-delay="0.5s" item lg={6} xs={12}>
+        <Grid className="wow fadeInDown" data-wow-offset="50" data-wow-delay="0.2s" item lg={6} xs={12}>
             <Paper className={classes.tableItem}>
                 <ButtonBase
                     focusRipple
@@ -61,4 +61,4 @@ const PaperThirds = (props) => {
 }
 
 
-export default PaperThirds
+export default Products

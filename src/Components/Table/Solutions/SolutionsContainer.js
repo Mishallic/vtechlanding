@@ -1,6 +1,6 @@
 import React , { Component } from 'react'
 import { withStyles } from '@material-ui/core';
-import ThirdsTable from './ThirdsTable'
+import Solutions from './Solutions'
 
 
 const styles = theme => ({
@@ -101,7 +101,7 @@ const styles = theme => ({
 
 
 
-class ThirdsTableContainer extends Component {
+class SolutionsContainer extends Component {
 
   state={
     data:{
@@ -137,7 +137,7 @@ class ThirdsTableContainer extends Component {
   render(){
     return(
       <div>
-        <ThirdsTable data={this.state.data} styles={this.props}></ThirdsTable>
+        <Solutions data={this.state.data} styles={this.props}></Solutions>
       </div>
     )
     
@@ -146,4 +146,4 @@ class ThirdsTableContainer extends Component {
 
 
 
-export default withStyles(styles)(ThirdsTableContainer)
+export default withStyles(styles)(SolutionsContainer)

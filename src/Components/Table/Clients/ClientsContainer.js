@@ -1,6 +1,6 @@
 import React , { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import FivesTables from './fivesTables'
+import Clients from './Clients'
 
 const styles = () => ({
     root:{
@@ -26,7 +26,7 @@ const styles = () => ({
 })
 
 
-class FivesTablesContainer extends Component {
+class ClientsContainer extends Component {
     
     state = {
         clients:{
@@ -61,11 +61,11 @@ class FivesTablesContainer extends Component {
     render(){
         return(
             <div>
-                <FivesTables data={this.state.clients} styles={this.props}></FivesTables>
+                <Clients data={this.state.clients} styles={this.props}></Clients>
             </div>
         )
     }
 }
 
 
-export default withStyles(styles)(FivesTablesContainer)
+export default withStyles(styles)(ClientsContainer)

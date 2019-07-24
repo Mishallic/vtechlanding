@@ -1,6 +1,6 @@
 import React , { Component } from 'react'
 import {withStyles} from '@material-ui/core/styles'
-import PaperThirds from './paperThirds'
+import Products from './products'
 
 
 const styles = (theme) => ({
@@ -96,25 +96,25 @@ transition: theme.transitions.create('opacity'),
 },
 })
 
-class PaperThirdsContainer extends Component {
+class ProductsContainer extends Component {
 
     state = {
         data:{
             products:[
                 {
-                  url:'images/vtek/table1.png',
+                  url:'images/vtek/table1-ds.png',
                   label:'Resto Prime POS '
                 },
                 {
-                  url:'images/vtek/table2.png',
+                  url:'images/vtek/table2-ds.png',
                   label:'Label Printer LK-B31'
                 },
                 {
-                  url:'images/vtek/table3.jpg',
+                  url:'images/vtek/table3-ds.jpg',
                   label:'Wind 015T Scale'
                 },
                 {
-                  url:'images/vtek/table4.png',
+                  url:'images/vtek/table4-ds.png',
                   label:'delpos Stylish POS'
                 },
                 {
@@ -122,7 +122,7 @@ class PaperThirdsContainer extends Component {
                   label:'Shop Prime POS'
                 },
                 {
-                  url:'images/vtek/table6.jpg',
+                  url:'images/vtek/table6-ds.jpg',
                   label:'DataLogic QD2131 Imager Scanner'
                 }
             ]
@@ -131,11 +131,11 @@ class PaperThirdsContainer extends Component {
 
     render(){
         return(
-            <PaperThirds data={this.state.data} styles={this.props}></PaperThirds>
+            <Products data={this.state.data} styles={this.props}></Products>
         )
     }
 }
 
 
 
-export default withStyles(styles)(PaperThirdsContainer)
+export default withStyles(styles)(ProductsContainer)
