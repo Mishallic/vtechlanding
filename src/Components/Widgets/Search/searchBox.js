@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+//mui
 import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import InputBase from '@material-ui/core/InputBase';
-import IconButton from '@material-ui/core/IconButton';
+import {Paper, IconButton, InputBase } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
+
 
 const styles = {
   root: {
@@ -27,9 +28,8 @@ const styles = {
   },
 };
 
-function SearchBox(props) {
+const SearchBox = (props) => {
   const { classes } = props;
-
   return (
     <Paper className={classes.root} elevation={1}>
       <InputBase className={classes.input} placeholder="Search V-tech" />
@@ -38,7 +38,7 @@ function SearchBox(props) {
       </IconButton>
     </Paper>
   );
-}
+};
 
 SearchBox.propTypes = {
   classes: PropTypes.object.isRequired,

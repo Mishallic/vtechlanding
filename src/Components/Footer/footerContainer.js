@@ -1,49 +1,38 @@
 import React, { Component } from 'react'
-import { withStyles } from '@material-ui/core/styles'
-import FooterTemplate from './footerTemplate'
-
+import FooterTemplate from './footerTemplate';
+//mui
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = () => ({
-    root:{
-        height:'auto',
-        width:'100%',
-        color:'#fff',
-        margin:'20px 0'
+    root: {
+        height: 'auto',
+        width: '100%',
+        color: '#fff',
+        margin: '20px 0'
     },
-    container:{
-        height:'100%',
-        backgroundColor:'#424242'
+    container: {
+        height: '100%',
+        backgroundColor: '#424242'
     },
-    logo:{
-        width:'62%',
-      },
-      logoContainer:{
-        maxWidth:'100%',
-          height:'auto',
-          display:'block', 
-          margin:'auto',
-          textAlign:'center'
-      },
+    logo: {
+        width: '62%',
+    },
+    logoContainer: {
+        maxWidth: '100%',
+        height: 'auto',
+        display: 'block',
+        margin: 'auto',
+        textAlign: 'center'
+    },
 })
 
 
-class FooterContainer extends Component{ 
+class FooterContainer extends Component {
+    render() {
+        return (
+            <FooterTemplate styles={this.props} />
+        );
+    };
+};
 
-    state = {
-        
-    }
-
-
-    render(){
-       
-        return(
-            <div>
-                <FooterTemplate styles={this.props}></FooterTemplate>
-            </div>
-        )
-    }
-}
-
-
-
-export default withStyles(styles)(FooterContainer)
+export default withStyles(styles)(FooterContainer);

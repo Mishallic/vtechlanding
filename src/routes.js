@@ -1,7 +1,10 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom';
-import Home from './Components/Home/home'
-import Layout from './Components/hoc/layout'
+//components
+import Home from './Components/Home/home';
+import Layout from './Components/hoc/layout';
+
+//this component collects routes to a switch, and applies the layout component.
 
 const Routes = () => {
   return(

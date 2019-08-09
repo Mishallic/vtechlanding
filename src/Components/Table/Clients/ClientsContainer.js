@@ -1,6 +1,8 @@
 import React , { Component } from 'react'
-import { withStyles } from '@material-ui/core/styles'
 import Clients from './Clients'
+
+//mui
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = () => ({
     root:{
@@ -23,7 +25,7 @@ const styles = () => ({
         bottom:0,
         horizantalAlign:'center'
     }
-})
+});
 
 
 class ClientsContainer extends Component {
@@ -55,17 +57,15 @@ class ClientsContainer extends Component {
                 img:'images/clients/AT (copy).jpg'
             }
         }
-    }
-
+    };
 
     render(){
         return(
             <div>
-                <Clients data={this.state.clients} styles={this.props}></Clients>
+                <Clients data={this.state.clients} styles={this.props} />
             </div>
-        )
-    }
-}
+        );
+    };
+};
 
-
-export default withStyles(styles)(ClientsContainer)
+export default withStyles(styles)(ClientsContainer);

@@ -1,26 +1,24 @@
-import React , { Component } from 'react'
+import React , { Component } from 'react';
+import Solutions from './Solutions';
+//mui
 import { withStyles } from '@material-ui/core';
-import Solutions from './Solutions'
 
+//this component contains the styles and data and important logic
 
 const styles = theme => ({
 
     root:{
         width:'100%',
         marginBottom:'40px'
-        // border:'1px solid red'
     },
     container:{
         width:'80%',
-        // border:'1px dotted orange',
         margin:'auto'
     },
     tableItem:{
         height:'auto',
         transform:'translate(0) scale(1)',
         transition:'.9'
-
-        // border:'1px red dotted'
     },
     tableTitle:{
         margin:'20px 0'
@@ -139,11 +137,8 @@ class SolutionsContainer extends Component {
       <div>
         <Solutions data={this.state.data} styles={this.props}></Solutions>
       </div>
-    )
-    
-  }
-}
+    );
+  };
+};
 
-
-
-export default withStyles(styles)(SolutionsContainer)
+export default withStyles(styles)(SolutionsContainer);
