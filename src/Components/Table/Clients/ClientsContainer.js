@@ -1,66 +1,66 @@
-import React , { Component } from 'react'
+import React, { Component } from 'react'
 import Clients from './Clients'
 
 //mui
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = () => ({
-    root:{
-        width:'80%',
-        margin:'20px auto'
+    root: {
+        width: '80%',
+        margin: '20px auto'
     },
-    clientItem:{
-        textAlign:'center',
+    clientItem: {
+        textAlign: 'center',
     },
-    imgContainer:{
-        maxWidth:'100%',
-        height:'auto',
-        display:'block', 
-        margin:'auto',
-        textAlign:'center'
+    imgContainer: {
+        maxWidth: '100%',
+        height: 'auto',
+        display: 'block',
+        margin: 'auto',
+        textAlign: 'center'
 
     },
-    img:{
-        width:'60%',
-        bottom:0,
-        horizantalAlign:'center'
+    img: {
+        width: '60%',
+        bottom: 0,
+        horizantalAlign: 'center'
     }
 });
 
 
 class ClientsContainer extends Component {
-    
+
     state = {
-        clients:{
-            RawanCake:{
-                name:'Rawan Cake',
-                img:'images/clients/RC.png',
+        clients: {
+            RawanCake: {
+                name: 'Rawan Cake',
+                img: 'images/clients/RC.png',
             },
-            SajHaretna:{
-                name:'Saj Haretna',
-                img:'images/clients/SA.jpeg',
+            SajHaretna: {
+                name: 'Saj Haretna',
+                img: 'images/clients/SA.jpeg',
             },
-            Jabri:{
-                name:'Jabri',
-                img:'images/clients/JA.png',
+            Jabri: {
+                name: 'Jabri',
+                img: 'images/clients/JA.png',
             },
-            Dulux:{
-                name:'Dulux',
-                img:'images/clients/DU.jpeg',
+            Dulux: {
+                name: 'Dulux',
+                img: 'images/clients/DU.jpeg',
             },
-            AbuTafesh:{
-                name:'Abu Tafesh',
-                img:'images/clients/AT.jpg',
+            AbuTafesh: {
+                name: 'Abu Tafesh',
+                img: 'images/clients/AT.jpg',
             },
-            Test:{
-                name:'Test',
-                img:'images/clients/AT (copy).jpg'
+            Test: {
+                name: 'Test',
+                img: 'images/clients/AT (copy).jpg'
             }
         }
     };
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <Clients data={this.state.clients} styles={this.props} />
             </div>

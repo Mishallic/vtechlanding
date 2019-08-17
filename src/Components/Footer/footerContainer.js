@@ -18,7 +18,7 @@ const styles = () => ({
         width: '62%',
     },
     logoContainer: {
-        maxWidth: '100%',
+        maxWidth: '40%',
         height: 'auto',
         display: 'block',
         margin: 'auto',

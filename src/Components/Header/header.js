@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 //mui
 import { withStyles } from '@material-ui/core/styles';
-import {Home, Phone, EditLocation, AccountCircle} from '@material-ui/icons'
-import {Button, Select, Grid} from '@material-ui/core'
+import { Home, Phone, EditLocation, AccountCircle } from '@material-ui/icons'
+import { Button, Select, Grid } from '@material-ui/core'
 //widgets
 import SearchBox from '../Widgets/Search/searchBox'
 
@@ -22,7 +22,8 @@ const styles = theme => ({
     height: '100%',
   },
   logo: {
-    width: '62%',
+    width: '100%',
+    margin: 'auto'
   },
   logoContainer: {
     maxWidth: '100%',
@@ -78,17 +79,17 @@ class Header extends Component {
             </div>
           </Grid>
 
-          <Grid item xs={12} md={12} lg={4}>
+          <Grid item style={{margin:'auto'}}xs={6} sm={6} md={4} lg={4} xl={6}>
             <div className={classes.logoContainer} >
               <img className={classes.logo} src='images/logo.png' alt='logo'></img>
             </div>
           </Grid>
 
-          <Grid item xs={12} md={12} lg={4}>
+          <Grid item xs={12} md={12} lg={12}>
 
             <Grid container spacing={8}>
 
-              <Grid className={classes.paper} item xs>
+              <Grid className={classes.paper} item xs={6} sm={6} md={6} lg={6} xl={6}>
                 <EditLocation fontSize='small' />
                 <Select
                   native
@@ -105,36 +106,20 @@ class Header extends Component {
                 </Select>
               </Grid>
 
-              <Grid 
-                className={classes.paper} 
-                container 
-                justify='center' 
-                direcion='row' 
-                alignItems='center' 
-                item 
-                lg xs={12}
+              <Grid
+                className={classes.paper}
+                container
+                justify='center'
+                direcion='row'
+                alignItems='center'
+                item
+                xs={6} sm={6} md={6} lg={6} xl={6}
               >
                 <AccountCircle fontSize='default' />
                 <Button variant='contained' size='small' >SignIn</Button>
                 <Button variant='contained' color='primary' size='small'>SignOut</Button>
               </Grid>
-
             </Grid>
-
-            <div className={classes.phoneNumber}>
-              <Grid 
-                className={classes.paper} 
-                container 
-                justify='center' 
-                direcion='row' 
-                alignItems='center' 
-                item lg xs={12}
-              >
-                <Button variant='text' size='small' >
-                  <Phone fontSize='small' className={classes.paper}></Phone>0775454221</Button>
-              </Grid>
-            </div>
-
           </Grid>
         </Grid>
       </div>

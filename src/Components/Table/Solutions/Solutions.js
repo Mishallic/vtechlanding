@@ -20,7 +20,7 @@ const Solutions = (props) => {
     //a template recieves data and renders it when the function is called
     const renderItems = (item) => (
 
-        <Grid className="wow flipInY" data-wow-offset="50" data-wow-delay="0.2s" item lg={4} xs={12}>
+        <Grid className="wow flipInY" data-wow-offset="50" data-wow-delay="0.2s" item lg={4} md={4} xl={4} sm={12} xs={12}>
             <div  className={classes.tableItem}>
                 <ButtonBase
                     focusRipple

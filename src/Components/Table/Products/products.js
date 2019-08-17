@@ -16,7 +16,7 @@ const Products = (props) => {
 
     //displays image and effects within a grid, data recieved from a map function
     const renderItems = (item) => (
-        <Grid className="wow fadeInDown" data-wow-offset="30" data-wow-delay="0.1s" item lg={6} xs={12}>
+        <Grid className="wow fadeInDown" data-wow-offset="30" data-wow-delay="0.1s" item xl={6} lg={6} md={6} sm={12} xs={12}>
             <Paper className={classes.tableItem}>
                 <ButtonBase
                     focusRipple

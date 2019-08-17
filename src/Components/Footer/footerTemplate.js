@@ -13,13 +13,13 @@ const FooterTemplate = (props) => {
 
                 <Grid container spacing={16}>
 
-                    <Grid item lg={4} xs={12}>
+                    <Grid item lg={12} md={12} xl={12} sm={12} xs={12}>
                         <div className={classes.logoContainer} >
                             <img className={classes.logo} src='images/vtech_logo.png' alt='logo'></img>
                         </div>
                     </Grid>
 
-                    <Grid item lg xs={12}>
+                    <Grid item xl={3} lg={3} md={3} sm={12} xs={12}>
                         <Typography color='secondary' variant='h6'>Company</Typography>
                         <Grid>
                             <Grid>
@@ -31,7 +31,7 @@ const FooterTemplate = (props) => {
                         </Grid>
                     </Grid>
 
-                    <Grid item lg xs={12}>
+                    <Grid item xl={3} lg={3} md={3} sm={12} xs={12}>
                         <Typography color='secondary' variant='h6'>Our Solutions</Typography>
                         <Grid>
                             <Grid>
@@ -43,7 +43,7 @@ const FooterTemplate = (props) => {
                         </Grid>
                     </Grid>
 
-                    <Grid item lg xs={12}>
+                    <Grid item xl={3} lg={3} md={3} sm={12} xs={12}>
                         <Typography color='secondary' variant='h6'>Cloud Solutions</Typography>
                         <Grid>
                             <Grid>
@@ -61,7 +61,7 @@ const FooterTemplate = (props) => {
                         </Grid>
                     </Grid>
 
-                    <Grid item lg xs={12}>
+                    <Grid item xl={3} lg={3} md={3} sm={12} xs={12}>
                         <Typography color='secondary' variant='h6'>Network Security</Typography>
                         <Grid>
                             <Grid>

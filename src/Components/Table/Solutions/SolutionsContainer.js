@@ -1,4 +1,4 @@
-import React , { Component } from 'react';
+import React, { Component } from 'react';
 import Solutions from './Solutions';
 //mui
 import { withStyles } from '@material-ui/core';
@@ -7,25 +7,25 @@ import { withStyles } from '@material-ui/core';
 
 const styles = theme => ({
 
-    root:{
-        width:'100%',
-        marginBottom:'40px'
-    },
-    container:{
-        width:'80%',
-        margin:'auto'
-    },
-    tableItem:{
-        height:'auto',
-        transform:'translate(0) scale(1)',
-        transition:'.9'
-    },
-    tableTitle:{
-        margin:'20px 0'
-    },
+  root: {
+    width: '100%',
+    marginBottom: '40px'
+  },
+  container: {
+    width: '80%',
+    margin: 'auto'
+  },
+  tableItem: {
+    height: 'auto',
+    transform: 'translate(0) scale(1)',
+    transition: '.9'
+  },
+  tableTitle: {
+    margin: '20px 0'
+  },
 
 
-    rootTEST: {
+  rootTEST: {
     display: 'flex',
     flexWrap: 'wrap',
     minWidth: 300,
@@ -101,39 +101,39 @@ const styles = theme => ({
 
 class SolutionsContainer extends Component {
 
-  state={
-    data:{
-      solutions:[
+  state = {
+    data: {
+      solutions: [
         {
-          url:'images/eHopper.jpg',
-          title:'Test'
+          url: 'images/eHopper.jpg',
+          title: 'Test'
         },
         {
-          url:'images/eHopper.jpg',
-          title:'Test'
+          url: 'images/eHopper.jpg',
+          title: 'Test'
         },
         {
-          url:'images/eHopper.jpg',
-          title:'Test'
+          url: 'images/eHopper.jpg',
+          title: 'Test'
         },
         {
-          url:'images/eHopper.jpg',
-          title:'Test'
+          url: 'images/eHopper.jpg',
+          title: 'Test'
         },
         {
-          url:'images/eHopper.jpg',
-          title:'Test'
+          url: 'images/eHopper.jpg',
+          title: 'Test'
         },
         {
-          url:'images/eHopper.jpg',
-          title:'Test'
+          url: 'images/eHopper.jpg',
+          title: 'Test'
         },
       ]
-    } 
+    }
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div>
         <Solutions data={this.state.data} styles={this.props}></Solutions>
       </div>
