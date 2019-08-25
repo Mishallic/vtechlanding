@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 //mui
 import { withStyles } from '@material-ui/core/styles';
-import { Home, Phone, EditLocation, AccountCircle } from '@material-ui/icons'
+import { Home, EditLocation, AccountCircle } from '@material-ui/icons'
 import { Button, Select, Grid } from '@material-ui/core'
 //widgets
 import SearchBox from '../Widgets/Search/searchBox'
@@ -26,9 +26,6 @@ const styles = theme => ({
     margin: 'auto'
   },
   logoContainer: {
-    maxWidth: '100%',
-    height: 'auto',
-    display: 'block',
     margin: 'auto',
     textAlign: 'center'
   },
@@ -56,7 +53,7 @@ class Header extends Component {
       <div className={classes.root}>
         <Grid container spacing={24}>
 
-          <Grid item xs={12} md={12} lg={4}>
+          <Grid item xs={12} xl={12}>
 
             <Grid container spacing={8}>
 
@@ -79,10 +76,10 @@ class Header extends Component {
             </div>
           </Grid>
 
-          <Grid item style={{margin:'auto'}}xs={6} sm={6} md={4} lg={4} xl={6}>
-            <div className={classes.logoContainer} >
+          <Grid item style={{margin:'auto'}}xs={12} sm={12} md={12} lg={12} xl={12}>
+            <Grid className={classes.logoContainer} xs={12} sm={12} md={4} lg={4} xl={4}>
               <img className={classes.logo} src='images/logo.png' alt='logo'></img>
-            </div>
+            </Grid>
           </Grid>
 
           <Grid item xs={12} md={12} lg={12}>
