@@ -45,7 +45,7 @@ export default function App() {
           {searching && (
             <Typography color="text.secondary">
               {total === 0 ? `Nothing matches “${query.trim()}”.` : `${total} result${total === 1 ? '' : 's'} for “${query.trim()}”`}
-              {total === 0 && <Button size="small" onClick={() => setQuery('')} sx={{ ml: 1 }}>Clear search</Button>}
+              {total === 0 && <Button size="small" onClick={() => setQuery('')} sx={{ ml: 1 }}>Show everything</Button>}
             </Typography>
           )}
         </Box>

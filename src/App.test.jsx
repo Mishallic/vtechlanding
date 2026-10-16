@@ -59,7 +59,7 @@ describe('landing page', () => {
     await user.type(screen.getByRole('searchbox', { name: 'Search V-tech' }), 'zzz');
     expect(screen.getByText('Nothing matches “zzz”.')).toBeInTheDocument();
 
-    await user.click(screen.getByRole('button', { name: 'Clear search' }));
+    await user.click(screen.getByRole('button', { name: 'Show everything' }));
     expect(screen.getByRole('heading', { level: 2, name: 'Our Clients' })).toBeInTheDocument();
     expect(within(screen.getByRole('main')).getByText('Wind 015T Scale')).toBeInTheDocument();
   });
