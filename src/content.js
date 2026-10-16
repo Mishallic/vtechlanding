@@ -1,8 +1,9 @@
 // Everything the page shows, in one place. Images live in public/images.
 
+// Each slide names the products below that serve that market.
 export const slides = [
-  { title: 'Restaurants', text: 'lorem ipusm test the paragraph when tthank lorem', image: '/images/web3.jpg' },
-  { title: 'Retail', text: 'lorem ipusm test the paragraph when tthank lore', image: '/images/web2.jpg' },
+  { title: 'Restaurants', text: 'Resto Prime POS terminals and LK-B31 label printers for restaurants.', image: '/images/web3.jpg' },
+  { title: 'Retail', text: 'Shop Prime POS, Wind 015T scales and DataLogic barcode scanners for shops.', image: '/images/web2.jpg' },
 ];
 
 export const products = [
@@ -14,7 +15,14 @@ export const products = [
   { name: 'DataLogic QD2131 Imager Scanner', image: '/images/vtek/table6-ds.jpg' },
 ];
 
-export const solutions = Array.from({ length: 6 }, () => ({ name: 'Test', image: '/images/eHopper.jpg' }));
+// The solutions as the footer groups them. The Solutions section shows the same list.
+export const solutionGroups = [
+  { title: 'Our Solutions', items: ['Business Intelligence', 'Security'] },
+  { title: 'Cloud Solutions', items: ['Hotel Cloud', 'POS Cloud', 'Backup Cloud', 'Dashboard Cloud'] },
+  { title: 'Network Security', items: ['PKI', 'Security Audit', 'Network Security'] },
+];
+
+export const solutions = solutionGroups.flatMap((group) => group.items.map((name) => ({ name, group: group.title })));
 
 export const clients = [
   { name: 'Rawan Cake', logo: '/images/clients/RC.png' },
@@ -22,15 +30,9 @@ export const clients = [
   { name: 'Jabri', logo: '/images/clients/JA.png' },
   { name: 'Dulux', logo: '/images/clients/DU.jpeg' },
   { name: 'Abu Tafesh', logo: '/images/clients/AT.jpg' },
-  { name: 'Test', logo: '/images/clients/AT (copy).jpg' },
 ];
 
-export const footerColumns = [
-  { title: 'Company', items: ['About Us', 'Service'] },
-  { title: 'Our Solutions', items: ['Business Intelligence', 'Security'] },
-  { title: 'Cloud Solutions', items: ['Hotel Cloud', 'POS Cloud', 'Backup Cloud', 'Dashboard Cloud'] },
-  { title: 'Network Security', items: ['PKI', 'Security Audit', 'Network Security'] },
-];
+export const footerColumns = [{ title: 'Company', items: ['About Us', 'Service'] }, ...solutionGroups];
 
 export const menuItems = ['Products', 'Solutions', 'Clients', 'Partners', 'Downloads', 'Media Center', 'Success Story'];
 

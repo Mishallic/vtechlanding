@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import App from './App';
-import { products } from './content';
+import { products, solutionGroups } from './content';
 
 describe('landing page', () => {
   it('shows every section and product', () => {
@@ -13,6 +13,19 @@ describe('landing page', () => {
     for (const product of products) {
       expect(screen.getByText(product.name)).toBeInTheDocument();
     }
+  });
+
+  it('has no placeholder content left', () => {
+    const { container } = render(<App />);
+    expect(container.textContent).not.toMatch(/lorem|ipusm|\bTest\b/i);
+    expect(screen.queryByAltText('Test')).not.toBeInTheDocument();
+  });
+
+  it('lists every solution from the footer in the Solutions section', () => {
+    render(<App />);
+    const section = screen.getByRole('heading', { level: 2, name: 'Our Solutions' }).closest('section');
+    const cards = within(section).getAllByRole('heading', { level: 3 }).map((h) => h.textContent);
+    expect(cards).toEqual(solutionGroups.flatMap((group) => group.items));
   });
 
   it('moves between slides with the arrows', async () => {
