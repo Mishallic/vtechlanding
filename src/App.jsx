@@ -9,7 +9,6 @@ import Clients from './components/Clients';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import HeroSlider from './components/HeroSlider';
-import NavBar from './components/NavBar';
 import Products from './components/Products';
 import Solutions from './components/Solutions';
 import { clients, footerColumns, products, slides, solutions } from './content';
@@ -38,8 +37,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header search={{ value: query, onChange: setQuery, onSubmit: jumpToResults }} />
-      <NavBar />
-      <main>
+      <main id="top">
         {!searching && <HeroSlider slides={slides} />}
         <Box id="search-results" aria-live="polite" sx={{ width: '80%', mx: 'auto', mt: searching ? 2 : 0 }}>
           {searching && (
