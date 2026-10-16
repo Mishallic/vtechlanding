@@ -8,11 +8,11 @@ export const slides = [
 
 export const products = [
   { name: 'Resto Prime POS', image: '/images/vtek/table1-ds.png' },
-  { name: 'Label Printer LK-B31', image: '/images/vtek/table2-ds.png' },
-  { name: 'Wind 015T Scale', image: '/images/vtek/table3-ds.jpg' },
-  { name: 'delpos Stylish POS', image: '/images/vtek/table4-ds.png' },
-  { name: 'Shop Prime POS', image: '/images/vtek/table5.jpg' },
-  { name: 'DataLogic QD2131 Imager Scanner', image: '/images/vtek/table6-ds.jpg' },
+  { name: 'Label Printer LK-B31', image: '/images/vtek/table3-ds.jpg' }, // the printer
+  { name: 'Wind 015T Scale', image: '/images/vtek/table2-ds.png' }, // the weighing scale
+  { name: 'delpos Stylish POS', image: '/images/vtek/table6-ds.jpg' }, // "delpos" is printed on it
+  { name: 'Shop Prime POS', image: '/images/vtek/table4-ds.png' },
+  { name: 'DataLogic QD2131 Imager Scanner', image: '/images/vtek/table5.jpg' }, // the handheld scanner
 ];
 
 // The solutions as the footer groups them. The Solutions section shows the same list.
