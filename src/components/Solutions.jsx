@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import BackupIcon from '@mui/icons-material/Backup';
 import CloudIcon from '@mui/icons-material/Cloud';
@@ -13,6 +13,7 @@ import LanIcon from '@mui/icons-material/Lan';
 import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 import SecurityIcon from '@mui/icons-material/Security';
 import Reveal from './Reveal';
+import Section from './Section';
 
 const icons = {
   'Business Intelligence': InsightsIcon,
@@ -26,25 +27,45 @@ const icons = {
   'Network Security': LanIcon,
 };
 
+/** One card per group of solutions, each solution with its icon. Takes the (possibly filtered) solutions. */
 export default function Solutions({ items }) {
+  const groups = [...new Set(items.map((s) => s.group))].map((group) => ({
+    title: group,
+    names: items.filter((s) => s.group === group).map((s) => s.name),
+  }));
+
   return (
-    <Box component="section" id="solutions" sx={{ width: '80%', mx: 'auto', mb: 5 }}>
-      <Typography variant="h4" component="h2" align="center" sx={{ my: 2.5 }}>Our Solutions</Typography>
-      <Grid container spacing={3}>
-        {items.map((solution) => {
-          const Icon = icons[solution.name] ?? CloudIcon;
-          return (
-            <Grid item xs={12} sm={6} md={4} key={solution.name}>
-              <Reveal delay={0.2}>
-                <Paper variant="outlined" sx={{ p: 3, display: 'flex', alignItems: 'center', gap: 2, height: '100%' }}>
-                  <Icon sx={{ fontSize: 40, color: 'primary.dark' }} />
-                  <Typography variant="h6" component="h3">{solution.name}</Typography>
-                </Paper>
-              </Reveal>
-            </Grid>
-          );
-        })}
+    <Section id="solutions" eyebrow="Solutions" title="Our Solutions">
+      <Grid container spacing={3} justifyContent="center">
+        {groups.map((group) => (
+          <Grid item xs={12} md={4} key={group.title}>
+            <Reveal>
+              <Card variant="outlined" sx={{ borderRadius: '20px', p: 3, height: '100%' }}>
+                <Typography variant="h6" component="h3">{group.title}</Typography>
+                <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0, mt: 2.5, display: 'grid', gap: 1.75 }}>
+                  {group.names.map((name) => {
+                    const Icon = icons[name] ?? CloudIcon;
+                    return (
+                      <Box component="li" key={name} sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+                        <Box
+                          aria-hidden
+                          sx={{
+                            width: 40, height: 40, flexShrink: 0, borderRadius: '50%', bgcolor: '#e4f4de',
+                            color: 'primary.dark', display: 'grid', placeItems: 'center',
+                          }}
+                        >
+                          <Icon fontSize="small" />
+                        </Box>
+                        <Typography sx={{ fontWeight: 600 }}>{name}</Typography>
+                      </Box>
+                    );
+                  })}
+                </Box>
+              </Card>
+            </Reveal>
+          </Grid>
+        ))}
       </Grid>
-    </Box>
+    </Section>
   );
 }

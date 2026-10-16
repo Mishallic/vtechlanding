@@ -16,7 +16,7 @@ export default function Hero({ content }) {
       <Container
         maxWidth="lg"
         sx={{
-          py: { xs: 6, md: 10 }, display: 'grid', alignItems: 'center', gap: { xs: 5, md: 8 },
+          pt: { xs: 5, md: 10 }, pb: { xs: 3, md: 5 }, display: 'grid', alignItems: 'center', gap: { xs: 5, md: 8 },
           gridTemplateColumns: { xs: '1fr', md: '1.15fr 1fr' },
         }}
       >

@@ -23,6 +23,7 @@ export default function Reveal({ children, delay = 0 }) {
     <Box
       ref={ref}
       sx={{
+        height: '100%', // so cards inside can fill their grid cell and line up
         opacity: shown ? 1 : 0,
         transform: shown ? 'none' : 'translateY(16px)',
         transition: `opacity 0.6s ease ${delay}s, transform 0.6s ease ${delay}s`,

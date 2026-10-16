@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import { ThemeProvider } from '@mui/material/styles';
 import Clients from './components/Clients';
@@ -20,7 +20,7 @@ export default function App() {
   const [query, setQuery] = useState('');
   const searching = query.trim() !== '';
   const shown = {
-    products: products.filter((p) => matches(query, p.name)),
+    products: products.filter((p) => matches(query, p.name, p.type)),
     solutions: solutions.filter((s) => matches(query, s.name, s.group)),
     clients: clients.filter((c) => matches(query, c.name)),
   };
@@ -41,15 +41,17 @@ export default function App() {
       <main id="top">
         {!searching && <Hero content={hero} />}
         {!searching && <Markets items={markets} />}
-        <Box id="search-results" aria-live="polite" sx={{ width: '80%', mx: 'auto', mt: searching ? 2 : 0 }}>
+        <Box id="search-results" aria-live="polite">
           {searching && (
-            <Typography color="text.secondary">
-              {total === 0 ? `Nothing matches “${query.trim()}”.` : `${total} result${total === 1 ? '' : 's'} for “${query.trim()}”`}
-              {total === 0 && <Button size="small" onClick={() => setQuery('')} sx={{ ml: 1 }}>Show everything</Button>}
-            </Typography>
+            <Container maxWidth="lg" sx={{ pt: 4 }}>
+              <Typography color="text.secondary">
+                {total === 0 ? `Nothing matches “${query.trim()}”.` : `${total} result${total === 1 ? '' : 's'} for “${query.trim()}”`}
+                {total === 0 && <Button size="small" onClick={() => setQuery('')} sx={{ ml: 1 }}>Show everything</Button>}
+              </Typography>
+            </Container>
           )}
         </Box>
-        {sections.flatMap((section, i) => (i === 0 ? [section] : [<Divider key={`divider-${i}`} variant="middle" />, section]))}
+        {sections}
       </main>
       <Footer columns={footerColumns} />
     </ThemeProvider>

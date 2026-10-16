@@ -1,31 +1,46 @@
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
-import { sections } from '../content';
+import { hero, sections } from '../content';
+
+const heading = { color: '#fff', fontWeight: 700, fontSize: 15, mb: 1.5 };
+const item = { color: 'rgba(255, 255, 255, 0.72)', fontSize: 15, lineHeight: 2 };
 
 export default function Footer({ columns }) {
   return (
-    <Box component="footer" sx={{ mt: 2.5, bgcolor: '#424242', color: '#fff', py: 3 }}>
-      <Box sx={{ textAlign: 'center', mb: 2 }}>
-        <Box component="img" src="/images/vtech_logo.png" alt="V-tech" sx={{ width: { xs: '60%', sm: '25%' } }} />
-      </Box>
-      <Grid container spacing={2} sx={{ width: '80%', mx: 'auto' }}>
-        <Grid item xs={12} md={3}>
-          <Typography variant="h6" component="h3">Explore</Typography>
+    <Box component="footer" sx={{ bgcolor: '#101a13', color: '#fff' }}>
+      <Container
+        maxWidth="lg"
+        sx={{
+          py: { xs: 6, md: 8 }, display: 'grid', gap: 4,
+          gridTemplateColumns: { xs: '1fr 1fr', md: '1.6fr repeat(4, 1fr)' },
+        }}
+      >
+        <Box sx={{ gridColumn: { xs: '1 / -1', md: 'auto' } }}>
+          <Box component="img" src="/images/vtech_logo.png" alt="V-tech" sx={{ height: 56 }} />
+          <Typography sx={{ ...item, mt: 1.5, maxWidth: 260 }}>{hero.eyebrow}</Typography>
+        </Box>
+        <Box>
+          <Typography component="h3" sx={heading}>Explore</Typography>
           {sections.map((section) => (
-            <Link key={section.id} href={`#${section.id}`} color="inherit" underline="hover" display="block">
+            <Link key={section.id} href={`#${section.id}`} underline="hover" display="block" sx={{ ...item, '&:hover': { color: '#fff' } }}>
               {section.label}
             </Link>
           ))}
-        </Grid>
+        </Box>
         {columns.map((column) => (
-          <Grid item xs={12} md={3} key={column.title}>
-            <Typography variant="h6" component="h3">{column.title}</Typography>
-            {column.items.map((item) => <Typography key={item}>{item}</Typography>)}
-          </Grid>
+          <Box key={column.title}>
+            <Typography component="h3" sx={heading}>{column.title}</Typography>
+            {column.items.map((name) => <Typography key={name} sx={item}>{name}</Typography>)}
+          </Box>
         ))}
-      </Grid>
+      </Container>
+      <Box sx={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
+        <Container maxWidth="lg" sx={{ py: 2.5 }}>
+          <Typography sx={{ ...item, fontSize: 14 }}>© {new Date().getFullYear()} V-tech</Typography>
+        </Container>
+      </Box>
     </Box>
   );
 }

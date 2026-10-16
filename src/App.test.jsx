@@ -24,8 +24,10 @@ describe('landing page', () => {
   it('lists every solution from the footer in the Solutions section', () => {
     render(<App />);
     const section = screen.getByRole('heading', { level: 2, name: 'Our Solutions' }).closest('section');
-    const cards = within(section).getAllByRole('heading', { level: 3 }).map((h) => h.textContent);
-    expect(cards).toEqual(solutionGroups.flatMap((group) => group.items));
+    const groups = within(section).getAllByRole('heading', { level: 3 }).map((h) => h.textContent);
+    expect(groups).toEqual(solutionGroups.map((group) => group.title));
+    const listed = within(section).getAllByRole('listitem').map((li) => li.textContent);
+    expect(listed).toEqual(solutionGroups.flatMap((group) => group.items));
   });
 
   it('links the navigation to sections that exist, and offers no dead controls', () => {
