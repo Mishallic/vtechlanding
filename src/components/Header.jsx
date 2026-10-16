@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import SearchBox from './SearchBox';
 
-export default function Header() {
+export default function Header({ search }) {
   return (
     <Box
       component="header"
@@ -12,7 +12,7 @@ export default function Header() {
     >
       <Box component="img" src="/images/logo.png" alt="V-tech" sx={{ width: { xs: '80%', md: '30%' } }} />
       <Box sx={{ width: { xs: '100%', md: '40%' } }}>
-        <SearchBox />
+        <SearchBox {...search} />
       </Box>
     </Box>
   );

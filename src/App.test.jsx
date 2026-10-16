@@ -41,6 +41,29 @@ describe('landing page', () => {
     }
   });
 
+  it('filters the page as you type in the search box', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+    await user.type(screen.getByRole('searchbox', { name: 'Search V-tech' }), 'pos');
+
+    expect(screen.getByText('4 results for “pos”')).toBeInTheDocument();
+    const page = within(screen.getByRole('main')); // the footer lists the solutions too
+    for (const name of ['Resto Prime POS', 'delpos Stylish POS', 'Shop Prime POS', 'POS Cloud']) {
+      expect(page.getByText(name)).toBeInTheDocument();
+    }
+    expect(page.queryByText('Wind 015T Scale')).not.toBeInTheDocument();
+    expect(screen.queryByRole('heading', { level: 2, name: 'Our Clients' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('region', { name: 'Highlights' })).not.toBeInTheDocument(); // slider steps aside
+
+    await user.clear(screen.getByRole('searchbox', { name: 'Search V-tech' }));
+    await user.type(screen.getByRole('searchbox', { name: 'Search V-tech' }), 'zzz');
+    expect(screen.getByText('Nothing matches “zzz”.')).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'Clear search' }));
+    expect(screen.getByRole('heading', { level: 2, name: 'Our Clients' })).toBeInTheDocument();
+    expect(within(screen.getByRole('main')).getByText('Wind 015T Scale')).toBeInTheDocument();
+  });
+
   it('moves between slides with the arrows', async () => {
     const user = userEvent.setup();
     render(<App />);
