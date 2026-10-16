@@ -5,22 +5,24 @@ security solutions, and the businesses it serves.
 
 **Live:** https://vtechlanding.vercel.app
 
-![The page on a desktop](docs/screenshot-desktop.png)
+![The first screen on a laptop](docs/screenshot-desktop.png)
 
 ## What it does
 
-- A slider introduces the two markets the products serve, restaurants and retail. It advances
-  every 5 seconds, pauses while hovered or focused, and stays still for visitors who ask their
-  system for reduced motion.
-- **Best Choice Products** shows the six products, **Our Solutions** the nine solutions, and
-  **Our Clients** five client logos.
-- The navigation bar links to those three sections and stays at the top while scrolling.
-- The search box filters the page as you type. Every word has to appear in a product's name, a
-  solution's name or group, or a client's name; case and accents are ignored. While searching,
-  the slider steps aside, sections without matches are left out, and the result count is
+- **Header:** a slim bar that stays at the top, with the logo, links to the sections and a
+  search box. On phones the links fold into a menu and the search box takes its own row.
+- **Opening:** a headline saying what V-tech offers, one line naming the products and solutions,
+  buttons to the products and the solutions, and the Resto Prime terminal.
+- **Who it's for:** restaurants and retail, each with the products that serve it.
+- **Best Choice Products:** six product cards, each with its photo, what it is and its name.
+- **Our Solutions:** nine solutions in three groups, each with an icon.
+- **Our Clients:** five client logos.
+- **Search:** filters the page as you type. Every word has to appear in a product's name or type,
+  a solution's name or group, or a client's name; case and accents are ignored. While searching,
+  the opening steps aside, sections without matches are left out, and the result count is
   announced to screen readers.
 
-<img src="docs/screenshot-mobile.png" alt="The page at phone width" width="300">
+<img src="docs/screenshot-mobile.png" alt="The page on a phone" width="300">
 
 ## How it's built
 
@@ -28,18 +30,19 @@ Vite, React 18 and MUI v5, with no router: the site is a single page.
 
 ```
 src/
-  content.js        everything the page shows: slides, products, solutions, clients
+  content.js        everything the page shows: opening, markets, products, solutions, clients
   search.js         the search rule (every word must match)
-  theme.js          the brand green and global styles
+  theme.js          type (Plus Jakarta Sans), colours, shapes and global styles
   App.jsx           page layout and search state
-  components/       Header, NavBar, HeroSlider, Products, Solutions, Clients, Footer,
-                    ImageTile (photo tiles), Reveal (fade-in on scroll), SearchBox
-public/images/      logos, product photos, slider photos (WebP)
+  components/       Header, SearchBox, Hero, Markets, Products, Solutions, Clients, Footer,
+                    Section (shared section heading), Reveal (fade-in on scroll)
+public/images/      logos, product photos, market photos (WebP)
 ```
 
 The footer and the Solutions section read the same list from `content.js`, so they can't drift
-apart. Text on the green bar is dark green rather than white: white on #60D045 is 1.98:1, far
-below the 4.5:1 WCAG asks for, while dark green is 7.1:1.
+apart. The brand green (#60D045) is the accent colour. Text on it is dark green, because white on
+that green is only 1.98:1 against the 4.5:1 WCAG asks for; dark green is 7.1:1. Green text on
+white uses a deeper green (6.5:1).
 
 ## Tests
 
@@ -47,11 +50,12 @@ below the 4.5:1 WCAG asks for, while dark green is 7.1:1.
 npm test
 ```
 
-Vitest with Testing Library, 11 tests: every section and product renders; no placeholder text is
-left; the Solutions section lists exactly the footer's solutions; the navigation links reach real
-sections and no dead controls remain; search filters and clears; the slider's arrows move and
-wrap; text on the green bar meets 4.5:1; and every image the page uses exists with the exact
-letter case, since the production build runs on case-sensitive Linux.
+Vitest with Testing Library, 13 tests: every section and product renders; no placeholder text is
+left; the Solutions section lists exactly the footer's solutions, in their groups; the header
+links and the opening's buttons reach real sections, and no dead controls remain; both markets
+show with their products; search filters and clears; text colours meet 4.5:1 on white, on the
+tinted sections and on the green; and every image the page uses exists with the exact letter
+case, since the production build runs on case-sensitive Linux.
 
 ## What was deliberately left out
 
@@ -62,9 +66,12 @@ mislead visitors, and can come back once there's something for them to do:
 - **About Us, Contact Us, Partners, Downloads, Media Center, Success Story:** there was no content
   for these pages.
 - **The country picker (Jordan, KSA, Canada):** it didn't change anything on the page.
+- **The photo slider:** replaced by the opening and the two market cards, which show the same
+  photos and text without hiding one behind the other.
 
 ## Limits
 
+- The site has no contact details yet; a contact section needs the real phone, email and address.
 - The products, solutions and clients are the ones from the 2019 site. The solutions have names
   but no descriptions yet.
 - The logo shown for the client "Abu Tafesh" reads "Al Rifai"; one of the two is out of date.
