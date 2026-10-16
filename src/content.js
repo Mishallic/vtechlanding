@@ -1,7 +1,15 @@
 // Everything the page shows, in one place. Images live in public/images.
 
-// Each slide names the products below that serve that market.
-export const slides = [
+// The opening. It says only what the products and solutions below show.
+export const hero = {
+  eyebrow: 'Point of sale · Cloud · Security',
+  title: 'Point-of-sale systems, cloud and security for restaurants and retail',
+  text: 'POS terminals, scales, label printers and barcode scanners, with cloud, business-intelligence and network-security solutions behind them.',
+  image: { src: '/images/vtek/table1-ds.png', alt: 'Resto Prime POS terminal' },
+};
+
+// The two markets the products serve, each naming the products below that serve it.
+export const markets = [
   { title: 'Restaurants', text: 'Resto Prime POS terminals and LK-B31 label printers for restaurants.', image: '/images/web3.webp' },
   { title: 'Retail', text: 'Shop Prime POS, Wind 015T scales and DataLogic barcode scanners for shops.', image: '/images/web2.webp' },
 ];

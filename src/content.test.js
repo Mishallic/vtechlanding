@@ -1,7 +1,7 @@
 import { readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { clients, products, slides } from './content';
+import { clients, hero, markets, products } from './content';
 
 const publicDir = join(__dirname, '..', 'public');
 
@@ -18,7 +18,7 @@ function existsExactly(path) {
 describe('content', () => {
   it('points every image at a file that exists, with the exact letter case', () => {
     const images = [
-      ...slides.map((s) => s.image), ...products.map((p) => p.image), ...clients.map((c) => c.logo),
+      hero.image.src, ...markets.map((m) => m.image), ...products.map((p) => p.image), ...clients.map((c) => c.logo),
       '/images/logo.png', '/images/vtech_logo.png',
     ];
     expect(images.filter((image) => !existsExactly(image))).toEqual([]);

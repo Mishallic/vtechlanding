@@ -8,10 +8,11 @@ import { ThemeProvider } from '@mui/material/styles';
 import Clients from './components/Clients';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import HeroSlider from './components/HeroSlider';
+import Hero from './components/Hero';
+import Markets from './components/Markets';
 import Products from './components/Products';
 import Solutions from './components/Solutions';
-import { clients, footerColumns, products, slides, solutions } from './content';
+import { clients, footerColumns, hero, markets, products, solutions } from './content';
 import { matches } from './search';
 import { theme } from './theme';
 
@@ -26,7 +27,7 @@ export default function App() {
   const total = shown.products.length + shown.solutions.length + shown.clients.length;
   const jumpToResults = () => document.getElementById('search-results')?.scrollIntoView();
 
-  // While searching, sections without matches are left out and the slider steps aside.
+  // While searching, sections without matches are left out and the opening steps aside.
   const sections = [
     shown.products.length > 0 && <Products key="products" items={shown.products} />,
     shown.solutions.length > 0 && <Solutions key="solutions" items={shown.solutions} />,
@@ -38,7 +39,8 @@ export default function App() {
       <CssBaseline />
       <Header search={{ value: query, onChange: setQuery, onSubmit: jumpToResults }} />
       <main id="top">
-        {!searching && <HeroSlider slides={slides} />}
+        {!searching && <Hero content={hero} />}
+        {!searching && <Markets items={markets} />}
         <Box id="search-results" aria-live="polite" sx={{ width: '80%', mx: 'auto', mt: searching ? 2 : 0 }}>
           {searching && (
             <Typography color="text.secondary">

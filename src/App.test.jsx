@@ -2,7 +2,7 @@ import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import App from './App';
-import { products, solutionGroups } from './content';
+import { hero, markets, products, solutionGroups } from './content';
 
 describe('landing page', () => {
   it('shows every section and product', () => {
@@ -53,7 +53,7 @@ describe('landing page', () => {
     }
     expect(page.queryByText('Wind 015T Scale')).not.toBeInTheDocument();
     expect(screen.queryByRole('heading', { level: 2, name: 'Our Clients' })).not.toBeInTheDocument();
-    expect(screen.queryByRole('region', { name: 'Highlights' })).not.toBeInTheDocument(); // slider steps aside
+    expect(screen.queryByRole('heading', { level: 1 })).not.toBeInTheDocument(); // the opening steps aside
 
     await user.clear(screen.getByRole('searchbox', { name: 'Search V-tech' }));
     await user.type(screen.getByRole('searchbox', { name: 'Search V-tech' }), 'zzz');
@@ -64,22 +64,21 @@ describe('landing page', () => {
     expect(within(screen.getByRole('main')).getByText('Wind 015T Scale')).toBeInTheDocument();
   });
 
-  it('moves between slides with the arrows', async () => {
-    const user = userEvent.setup();
+  it('opens with a headline and buttons that lead to real sections', () => {
+    const { container } = render(<App />);
+    expect(screen.getByRole('heading', { level: 1, name: hero.title })).toBeInTheDocument();
+    for (const [name, target] of [['See products', '#products'], ['Our solutions', '#solutions']]) {
+      expect(screen.getByRole('link', { name })).toHaveAttribute('href', target);
+      expect(container.querySelector(target)).toBeInstanceOf(HTMLElement);
+    }
+  });
+
+  it('shows both markets with the products that serve them', () => {
     render(<App />);
-    // The slide not on screen is hidden from assistive tech, which also leaves it without an
-    // accessible name, so find the slides by role and check their labels.
-    const [restaurants, retail] = screen.getAllByRole('group', { hidden: true })
-      .filter((el) => el.getAttribute('aria-roledescription') === 'slide');
-    expect(restaurants).toHaveAttribute('aria-label', '1 of 2: Restaurants');
-    expect(retail).toHaveAttribute('aria-label', '2 of 2: Retail');
-    expect(restaurants).toHaveAttribute('aria-hidden', 'false');
-
-    await user.click(screen.getByRole('button', { name: 'Next slide' }));
-    expect(retail).toHaveAttribute('aria-hidden', 'false');
-    expect(restaurants).toHaveAttribute('aria-hidden', 'true');
-
-    await user.click(screen.getByRole('button', { name: 'Next slide' })); // wraps around
-    expect(restaurants).toHaveAttribute('aria-hidden', 'false');
+    const section = screen.getByRole('region', { name: 'Built for restaurants and retail' });
+    for (const market of markets) {
+      expect(within(section).getByRole('heading', { level: 3, name: market.title })).toBeInTheDocument();
+      expect(within(section).getByText(market.text)).toBeInTheDocument();
+    }
   });
 });
