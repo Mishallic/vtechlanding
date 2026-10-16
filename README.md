@@ -1,71 +1,90 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# V-tech landing page
 
-## Available Scripts
+The one-page site of V-tech: its point-of-sale products, its cloud, business-intelligence and
+security solutions, and the businesses it serves.
 
-In the project directory, you can run:
+**Live:** https://vtechlanding.vercel.app
 
-### `npm start`
+![The page on a desktop](docs/screenshot-desktop.png)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## What it does
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- A slider introduces the two markets the products serve, restaurants and retail. It advances
+  every 5 seconds, pauses while hovered or focused, and stays still for visitors who ask their
+  system for reduced motion.
+- **Best Choice Products** shows the six products, **Our Solutions** the nine solutions, and
+  **Our Clients** five client logos.
+- The navigation bar links to those three sections and stays at the top while scrolling.
+- The search box filters the page as you type. Every word has to appear in a product's name, a
+  solution's name or group, or a client's name; case and accents are ignored. While searching,
+  the slider steps aside, sections without matches are left out, and the result count is
+  announced to screen readers.
 
-### `npm test`
+<img src="docs/screenshot-mobile.png" alt="The page at phone width" width="300">
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How it's built
 
-### `npm run build`
+Vite, React 18 and MUI v5, with no router: the site is a single page.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+src/
+  content.js        everything the page shows: slides, products, solutions, clients
+  search.js         the search rule (every word must match)
+  theme.js          the brand green and global styles
+  App.jsx           page layout and search state
+  components/       Header, NavBar, HeroSlider, Products, Solutions, Clients, Footer,
+                    ImageTile (photo tiles), Reveal (fade-in on scroll), SearchBox
+public/images/      logos, product photos, slider photos (WebP)
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+The footer and the Solutions section read the same list from `content.js`, so they can't drift
+apart. Text on the green bar is dark green rather than white: white on #60D045 is 1.98:1, far
+below the 4.5:1 WCAG asks for, while dark green is 7.1:1.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tests
 
-### `npm run eject`
+```
+npm test
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Vitest with Testing Library, 11 tests: every section and product renders; no placeholder text is
+left; the Solutions section lists exactly the footer's solutions; the navigation links reach real
+sections and no dead controls remain; search filters and clears; the slider's arrows move and
+wrap; text on the green bar meets 4.5:1; and every image the page uses exists with the exact
+letter case, since the production build runs on case-sensitive Linux.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## What was deliberately left out
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The 2019 version had controls with nothing behind them. They were removed rather than left to
+mislead visitors, and can come back once there's something for them to do:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- **Sign in, sign out and the profile menu:** the site has no accounts.
+- **About Us, Contact Us, Partners, Downloads, Media Center, Success Story:** there was no content
+  for these pages.
+- **The country picker (Jordan, KSA, Canada):** it didn't change anything on the page.
 
-## Learn More
+## Limits
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- The products, solutions and clients are the ones from the 2019 site. The solutions have names
+  but no descriptions yet.
+- The logo shown for the client "Abu Tafesh" reads "Al Rifai"; one of the two is out of date.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Run locally
 
-### Code Splitting
+Needs Node.js 18 or newer.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```
+npm install
+npm run dev       # http://localhost:5173
+npm run build     # production build in dist/
+npm run preview   # serve the production build
+```
 
-### Analyzing the Bundle Size
+## Deploy
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+The site is a static build on Vercel. Vercel detects Vite on its own, so no configuration file is
+needed:
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# vtechlanding
-# vtechlanding
-# vtechlanding
+```
+npx vercel deploy --prod
+```
