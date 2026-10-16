@@ -2,8 +2,8 @@
 
 // Each slide names the products below that serve that market.
 export const slides = [
-  { title: 'Restaurants', text: 'Resto Prime POS terminals and LK-B31 label printers for restaurants.', image: '/images/web3.jpg' },
-  { title: 'Retail', text: 'Shop Prime POS, Wind 015T scales and DataLogic barcode scanners for shops.', image: '/images/web2.jpg' },
+  { title: 'Restaurants', text: 'Resto Prime POS terminals and LK-B31 label printers for restaurants.', image: '/images/web3.webp' },
+  { title: 'Retail', text: 'Shop Prime POS, Wind 015T scales and DataLogic barcode scanners for shops.', image: '/images/web2.webp' },
 ];
 
 export const products = [
