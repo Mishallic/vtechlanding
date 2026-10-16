@@ -18,7 +18,7 @@ export default function NavBar() {
       <Toolbar variant="dense">
         <Box sx={{ display: { xs: 'none', md: 'flex' }, width: '100%', justifyContent: 'space-around' }}>
           {sections.map((section) => (
-            <Button key={section.id} color="secondary" href={`#${section.id}`}>{section.label}</Button>
+            <Button key={section.id} color="inherit" href={`#${section.id}`}>{section.label}</Button>
           ))}
         </Box>
         <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
