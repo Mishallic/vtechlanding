@@ -9,4 +9,14 @@ export const theme = createTheme({
   typography: {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
   },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        // Section links glide to their section, unless the visitor asked for less motion.
+        html: { '@media (prefers-reduced-motion: no-preference)': { scrollBehavior: 'smooth' } },
+        // Leave room for the sticky navigation bar above a section's heading.
+        section: { scrollMarginTop: 56 },
+      },
+    },
+  },
 });

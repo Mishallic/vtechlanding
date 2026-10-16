@@ -28,6 +28,19 @@ describe('landing page', () => {
     expect(cards).toEqual(solutionGroups.flatMap((group) => group.items));
   });
 
+  it('links the navigation to sections that exist, and offers no dead controls', () => {
+    const { container } = render(<App />);
+    const nav = screen.getByRole('navigation', { name: 'Sections' });
+    const links = within(nav).getAllByRole('link');
+    expect(links.map((link) => link.textContent)).toEqual(['Products', 'Solutions', 'Clients']);
+    for (const link of links) {
+      expect(container.querySelector(link.getAttribute('href'))).toBeInstanceOf(HTMLElement);
+    }
+    for (const dead of [/sign in/i, /sign out/i, /about us/i, /contact us/i, /downloads/i]) {
+      expect(screen.queryByRole('button', { name: dead })).not.toBeInTheDocument();
+    }
+  });
+
   it('moves between slides with the arrows', async () => {
     const user = userEvent.setup();
     render(<App />);

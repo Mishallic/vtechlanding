@@ -32,8 +32,11 @@ export const clients = [
   { name: 'Abu Tafesh', logo: '/images/clients/AT.jpg' },
 ];
 
-export const footerColumns = [{ title: 'Company', items: ['About Us', 'Service'] }, ...solutionGroups];
+export const footerColumns = solutionGroups;
 
-export const menuItems = ['Products', 'Solutions', 'Clients', 'Partners', 'Downloads', 'Media Center', 'Success Story'];
-
-export const countries = ['Jordan', 'KSA', 'Canada'];
+// The page's sections, used by the navigation bar and the footer.
+export const sections = [
+  { id: 'products', label: 'Products' },
+  { id: 'solutions', label: 'Solutions' },
+  { id: 'clients', label: 'Clients' },
+];
